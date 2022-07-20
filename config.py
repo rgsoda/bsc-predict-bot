@@ -1,12 +1,12 @@
 class Config:
   # the amount of time to sleep between polling rounds
-  sleep_seconds = 3
+  sleep_seconds = 1
 
   # the minimum number of wins to accumulate before saving
   claim_every = 3
 
   # the amount of oracle history to query when starting
-  oracle_history = 100 
+  oracle_history = 10
 
   # dump of round history, used to check claimable
   history_url = "https://raw.githubusercontent.com/bsc-predict/bsc-predict-updater/master/data/v2/main/rounds.csv"
