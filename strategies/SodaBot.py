@@ -88,30 +88,3 @@ class Bot(BaseBot):
             if self.already_bet:
                 self.already_bet = False
                     
-        #     if self.last_bet: # już postawiliśmy poprzednio, sprawdzamy czy wygraliśmy
-        #         if self.last_bet.direction == last_winner_bet.winner:
-        #             print("Stawiamy na {}, ostatnio wygrał {}, stawka {}".format(direction, last_winner_bet.winner, self.bet_size_eth * self.multiplier))
-        #             self.last_bet = Bet(direction=direction, amount_eth=self.bet_size_eth * self.multiplier, epoch=upcoming.epoch)
-        #             self.already_bet = True
-        #             self.multiplier = 1
-        #         else:
-        #             print("Stawialiśmy na {}, ale ostatnio wygrał {}".format(direction, last_winner_bet.winner))
-        #             print("Podnosimy stawkę")
-        #             self.multiplier *= 2
-        #             return
-        #     else: # pierwse postawienie beta, na cokolwiek
-        #         print("Stawiamy na {}, stawka {}".format(direction, self.bet_size_eth * self.multiplier))
-        #         self.last_bet = Bet(direction=direction, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
-        #         print(self.last_bet)
-        #         self.already_bet = True
-
-        # else:
-
-        #     self.already_bet = False
-
-
-# from web3_provider import web3
-# from web3.middleware import geth_poa_middleware
-# web3.middleware_onion.inject(geth_poa_middleware, layer=0)
-# block = web3.eth.get_block('latest')
-# block
