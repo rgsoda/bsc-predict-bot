@@ -51,16 +51,17 @@ class Bot(BaseBot):
 
 
 
-        if upcoming.lockTimestamp - timestamp < 10:
+        if upcoming.lockTimestamp - timestamp < 12:
             print('mnie niz 10')
             if self.already_bet:
                 print('juz postawione, spadam')
                 return
             if not self.last_bet:
                 print('nie było, tworze kontrakt')
-                self.last_bet = Bet(direction=direction, amount_eth=self.bet_size_eth, epoch=upcoming.epoch)
+                self.last_bet = Bet(direction=direction, amount_eth=float(self.bet_size_eth), epoch=upcoming.epoch)
                 self.already_bet = True
                 print(self.last_bet)
+                return self.last_bet
             else:
                 print('był kontrakt', self.last_bet)
 
@@ -77,10 +78,11 @@ class Bot(BaseBot):
                     else:
                         self.multiplier = self.multiplier * 2
 
-                self.last_bet = Bet(direction=direction, amount_eth=self.bet_size_eth * self.multiplier, epoch=upcoming.epoch)
+                self.last_bet = Bet(direction=direction, amount_eth=float(self.bet_size_eth * self.multiplier), epoch=upcoming.epoch)
                 print("Stawiamy na {}, stawka {}".format(direction, self.bet_size_eth * self.multiplier))
                 print(self.last_bet)
                 self.already_bet = True
+                return self.last_bet
 
         else:
             if self.already_bet:
